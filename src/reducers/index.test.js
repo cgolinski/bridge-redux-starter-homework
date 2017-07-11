@@ -14,3 +14,37 @@ import { products } from './index';
       name: 'Sofa',
     }]);
   });
+
+  it('removes a product on REMOVE_PRODUCT', () => {
+    const action = {
+      type: ACTION_TYPES.removeProduct,
+      payload: {
+        product: {
+          id: '123',
+          name: 'Sofa',
+        }
+      }
+    };
+    expect(products(
+      [{
+        id: '111',
+        name: 'Chair',
+      }, 
+      {
+        id: '222',
+        name: 'Bed',
+      }, 
+      {
+        id: '123',
+        name: 'Sofa',
+      }], action)).toEqual(
+      [{
+        id: '111',
+        name: 'Chair',
+      }, 
+      {
+        id: '222',
+        name: 'Bed',
+      }]
+    );
+  });

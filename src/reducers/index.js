@@ -18,9 +18,10 @@ export const products = (state = INITIAL_STATE.products, { type, payload }) => {
         console.log('product: ', product);
         return product.id !== payload.product.id;
       });
+    default: return state;
   }
 
-  return state;
+  // return state;
 };
 
 export default combineReducers({
